@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+body
+{
+    background: #0a2a43;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+section
+{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section::before
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #0a2a43, transparent);
+    z-index: 10000;
+}
+section::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a2a43;
+    z-index: 10000;
+    mix-blend-mode: color;
+}
+section img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+
+}
+#text
+{
+    position: relative;
+    color: #fff;
+    font-size: 10em;
+    z-index: 1;
+}
+.wavy
+{
+    position: relative;
+    -webkit-box-reflect: below -12px linear-gradient(
+        transparent, rgba(0,0,0,0.2)
+    );
+}
+.wavy span
+{
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: 15em;
+    text-transform: uppercase;
+    animation: animate 1s ease-in-out infinite; 
+    animation-delay: calc(0.15s * var(--i));
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: translateY(0px);
+    }
+    20%
+    {
+        transform: translateY(-50px);
+    }
+    40%, 100%
+    {
+        transform: translateY(0px);
+    }
+}
+
+
+/*boxes below the image*/
+
+.box
+{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: inline-block;
+    justify-content:  center;
+    align-items: center;
+    margin: 40px;
+    background: #0a2a43;
+    transition: 0.5s;
+}
+.box:hover
+{
+    height: 400px;
+}
+.box .imgBx
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.box .imgBx img
+{
+    max-width:  100%;
+    opacity: 0.1;
+    transition: 0.5s;
+}
+.box:hover .imgBx img
+{
+    opacity: 1;
+}
+.box:before
+{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+.box:after
+{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter: blur(40px);
+}
+.box::before, .box::after
+{
+    background: linear-gradient(135deg, #870025, #173084, #870025);
+}
+.box .content
+{
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 90px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:  center;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+.box:hover .content
+{
+    opacity: 1;
+}
+.box .content h2
+{
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+.box .content h2 span
+{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
